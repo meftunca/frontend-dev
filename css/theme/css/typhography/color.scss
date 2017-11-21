@@ -16,7 +16,7 @@ $yellow: #FFEB3B;
 $sublime: #F87F14;
 $success: #229954;
 $info: #007bff;
-$default: #566573;
+$default: #808B96;
 $warning: #FF5722;
 $background: transparent;
 $blue-1: #0d47a1;
@@ -91,7 +91,7 @@ $whiteGray-3: #e0e0e0;
 $whiteGray-4: #f5f5f5;
 $whiteGray-5: #fafafa;
 $whiteGray-6: #eeeeee;
- $bg: ("light":#f3f3f3, "gray ": #575757, "black ": #000, "blue ": #0288D1, "purple ": #7B1FA2, "rose ": #e91e63, "pink ": #FF1C69, "red ": #F42A2A, "green ":#388E3C, "yellow ": #FFEB3B, "sublime":#FB8C00, "success":#1D8348, "info":#00bcd4, "default":#90A4AE, "warning":#FF5722, "dark":#015165);
+ $bg: ("light":#f3f3f3, "gray ": #575757, "black ": #232323, "blue ": #0288D1, "purple ": #7B1FA2, "rose ": #e91e63, "pink ": #FF1C69, "red ": #F42A2A, "green ":#388E3C, "yellow ": #FFEB3B, "sublime":#FB8C00, "success":#1D8348, "info":#00bcd4, "default":#90A4AE, "warning":#FF5722, "dark":#015165);
 @each $class,
 $color in ($bg) {
     .bg-#{$class} {
@@ -115,5 +115,5 @@ $color in ($bg) {
     color:#333;
 }
 .text-white{
-    color:#fff
+
 }

@@ -9,7 +9,7 @@
     align-content: center;
     min-width: 35px;
     min-height: 35px;
-    padding: 10px;
+    padding: 0.475em;
     text-indent:0 !important;
     transition:all 0.3s ease-in-out;
     border:1px solid #eee;
@@ -40,6 +40,7 @@
 }
 $btn-color: $default,
 $rose,
+$blue,
 $success,
 $sublime,
 $info,
@@ -48,6 +49,7 @@ $purple-5,
 $dark;
 $btn-color-name: 'btn-default,.badge-default,.item-default',
 'btn-rose,.badge-rose,.item-rose',
+'btn-primary,.badge-primary,.item-primary',
 'btn-success,.badge-success,.item-success',
 'btn-sublime,.badge-sublime,.item-sublime',
 'btn-info,.badge-info,.item-info',
@@ -124,12 +126,14 @@ $color in ($colorzip) {
 .badge-rose,
 .badge-sublime,
 .badge-success,
+.badge-primary,
 .badge-warning,
 .badge-dark,
 .btn-default,
 .btn-info,
 .btn-purple,
 .btn-rose,
+.btn-primary,
 .btn-sublime,
 .btn-success,
 .btn-dark,

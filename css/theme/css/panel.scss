@@ -1,5 +1,5 @@
 .panel {
-    display: inline-flex;
+    display: flex;
     -webkit-flex-flow: column wrap;
     flex-flow: column wrap;
     -webkit-justify-content: flex-start;
@@ -29,7 +29,13 @@
     }
     >.body {
         width: 100%;
-        margin: 10px 0;
+        &.collapse{
+            padding: 0;
+            margin: 0;
+            >*{
+                margin: 0;
+            }
+        }
     }
     >.foot {
         border-top: 1px solid #f1f1f1;

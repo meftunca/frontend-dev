@@ -119,7 +119,6 @@
         transition-delay: 0.1s;
         overflow: hidden;
         background: $white;
-        @include z-depth-2dp();
         &,
         &.bottom {
             bottom: 0;

@@ -133,13 +133,13 @@
         color: #000;
         cursor: pointer;
         text-align: center;
-        margin: 4px;
+        margin: 8px;
     }
     .cell {
         &.day {
             &.today {
-                color: rgb(240, 234, 234) !important;
-                background: rgb(7, 122, 236);
+                color: gray !important;
+                background: #d9d9d9;
             }
             &:hover {
                 color: rgba($rose, 0.8);

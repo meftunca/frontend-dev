@@ -32,8 +32,7 @@ $modal-overlay: rgba(33, 33, 33, .07);
         transition: display 1s ease-in-out;
         width: auto;
         max-width: 400px;
-        border-radius: .1rem;
-        border: 1px solid rgba(0, 0, 0, .2);
+        border: 1px solid rgba(0, 0, 0, .06);
         &.out {
             @include animate('bounceOutDown', 1s);
         }
@@ -105,23 +104,27 @@ $modal-overlay: rgba(33, 33, 33, .07);
             }
         }
         >.modal-header {
-            padding: 0.576em 2em;
+            padding: 0.576em 1.4em;
             display: flex;
-            border-bottom: 1px solid rgba($black, 0.13);
+            border-bottom: 1px solid rgba($black, 0.06);
             font-weight: bold;
         }
         >.modal-body {
-            padding: 25px;
+            padding: 0.576em 1.4em;
             min-height: 300px;
             -webkit-align-items: center;
             align-items: center;
         }
         >.modal-footer {
-            border-top: 1px solid rgba($black, 0.13);
+            border-top: 1px solid rgba($black, 0.06);
             display: flex;
             justify-content: center;
-            padding: 0.576em 2em;
+            padding: 0.376em 2em;
             text-align: center;
+            >*{
+                margin-top: 0;
+                margin-bottom: 0;
+            }
             &.start {
                 justify-content: flex-start;
             }

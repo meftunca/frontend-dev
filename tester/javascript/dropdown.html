@@ -24,16 +24,26 @@
     <aside class="col xl-3-4">
         <div class="dropdown">
         <button class="btn btn-rose btn-md dropdown-toggle">dropdown</button>
-        <ul class="dropdown-menu right bounceIn">
-            <li class="heading">heading</li>
-            <li><a href = "#!" >dropdown list 1</a ></li>
+            <div class="dropdown-menu">
+                <form class="d-flex flex-column">
+                    <div class="field">
+                        <label for="exampleDropdownFormEmail1">Email address</label><br>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                    </div>
+                    <div class="field">
+                        <label for="exampleDropdownFormPassword1">Password</label><br>
+                        <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                    </div>
+                    <div class="group default ">
+                        <input type="checkbox" checked id="ch10" class="checkbox"> <label for="ch10" class="checkbox"></label> Remember me
+                    </div>
 
-            <li><a href = "" >dropdown list 2</a > <i class="fa fa-cog fa-lg"></i></li>
-            <li>dropdown list 3</li>
-            <li>dropdown list 4</li>
-            <li>dropdown list 5</li>
-            <li>dropdown list 6</li>
-        </ul>
+                    <button type="submit" class="btn btn-info">Sign in</button>
+                </form>
+                <div class="divider"></div>
+                <a class="dropdown-item" href="#">New around here? Sign up</a><br>
+                <a class="dropdown-item" href="#">Forgot password?</a>
+            </div>
     </div>
     </aside>
     <div class="wrap__col--xl-1-1"><br ></div>
