@@ -1,0 +1,97 @@
+
+$chip-background-color: #f2f2f2 !default;
+$chip-font-color: #666666 !default;
+$chip-font-size: 0.75em !default;
+$action-color: #19a9e5 !default;
+$dark-gray: #484848;
+
+
+
+.chip {
+  background: #f2f2f2;
+  border-radius: .3rem;
+  color: #666666;
+  display: inline-flex;
+   height: 35px;
+  max-width: 100%;
+  margin-right: 5px;
+  text-decoration: none;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  text-indent : 10px;
+  &:hover,
+  &:focus {
+    background: darken($chip-background-color, 2%);
+  }
+
+  .chip-name {
+    margin-left: 6px;
+  }
+}
+
+.chips {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  box-shadow: none;
+  min-height: 30px;
+  outline: none;
+  transition: all .3s;
+
+  &.focus {
+    border-bottom: 1px solid $action-color;
+    box-shadow: 0 1px 0 0 $action-color;
+  }
+
+  &:hover {
+    cursor: text;
+  }
+
+  input {
+    background: none;
+    border: 0;
+    color: rgba(0,0,0,.6);
+    display: inline-block;
+    line-height: 32px;
+    outline: 0;
+    margin: 0;
+    padding: 0 !important;
+    width: 120px !important;
+    box-shadow: none;
+  }
+
+  input:focus {
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+.close {
+  float: right;
+  line-height: 1;
+  color: $whiteGray-2;
+  text-shadow: 0 1px 0 #fff;
+   font-size: 1rem;
+  font-weight: 600;
+  margin: 0 10px;
+  &:hover {
+    color: $dark-gray;
+    text-decoration: none;
+    cursor: pointer;
+   }
+  span{
+    font-size:15px;
+  }
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+
+  &:focus{
+    color: inherit;
+  }
+}

@@ -1,0 +1,7 @@
+a:not(.btn):not(.dropdown-toggle) {
+    // 1
+    font-size: $sm_font-size;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}

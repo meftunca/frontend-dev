@@ -1,0 +1,26 @@
+* {
+  &.d-block {
+    display: block;
+    width: 100%;
+  }
+
+  &.d-inline {
+    display: inline;
+  }
+
+  &.d-inline-block {
+    display: inline-block;
+  }
+
+  &.d-flex {
+    display: flex;
+  }
+
+  &.d-inline-flex {
+    display: inline-flex;
+  }
+
+  &.d-table {
+    display: table;
+  }
+}

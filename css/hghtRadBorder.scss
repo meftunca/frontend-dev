@@ -1,0 +1,156 @@
+$height-type: 0,
+10,
+20,
+50,
+100,
+200,
+"half","full";
+$height: 0,
+10px,
+20px,
+50px,
+100px,
+200px,
+50%,100%;
+$height-zip: zip($height-type, $height);
+@each $var,
+$val in($height-zip) {
+    .h-#{$var} {
+        min-height: #{$val} !important;
+    }
+
+    .w-#{$var} {
+        min-width: #{$val} !important;
+    }
+    .p-#{$var} {
+        padding: #{$val} !important;
+    }
+    .m-#{$var}{
+        margin: #{$val} !important;
+    }
+}
+
+
+
+$rad-type: 0,
+1,
+2,
+3,
+4,
+5,
+6,
+10,
+15,
+30,
+50;
+$rad: 0,
+1px,
+2px,
+3px,
+4px,
+5px,
+6px,
+10px,
+15px,
+30px,
+50%;
+$rad-zip: zip($rad-type, $rad);
+@each $var,
+$val in($rad-zip) {
+    .rad-#{$var} {
+        @include border-radius($val);
+    }
+}
+
+//border
+.br-0 {
+    border: 0 !important;
+}
+
+.br-0,
+.br-all-0 * {
+    border: 0 !important;
+}
+
+.br-top-0 {
+    border-top: 0 !important;
+}
+
+.br-right-0 {
+    border-right: 0 !important;
+}
+
+.br-bottom-0 {
+    border-bottom: 0 !important;
+}
+
+.br-left-0 {
+    border-left: 0 !important;
+}
+
+// radius
+$border-radius: 10px; //@mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px) {
+.round,
+.rounded {
+    @include border-radius($border-radius);
+}
+
+.rounded-top {
+    @include border-radius-separate($border-radius, $border-radius, 0, 0);
+}
+
+.rounded-right {
+    @include border-radius-separate(0, $border-radius, 0, $border-radius);
+}
+
+.rounded-bottom {
+    @include border-radius-separate(0, 0, $border-radius, $border-radius);
+}
+
+.rounded-left {
+    @include border-radius-separate($border-radius, 0, $border-radius, 0);
+}
+
+.pill,
+.pills {
+    @include border-radius(20px);
+}
+
+.circle {
+    @include border-radius(50%);
+}
+.br-1{border-width:1px ;}
+.br-2{border-width:2px ;}
+.br-3{border-width:3px ;}
+.br-solid{border-style:solid ;}
+.br-dotted{border-style:dotted ;}
+.br-dashed{border-style:dashed ;}
+$br-color: $default,
+$rose,
+$success,
+$sublime,
+$info,
+$warning,
+$purple-5,
+$dark,
+$whiteGray-2;
+$br-color-name: "default",
+"rose",
+"success",
+"sublime",
+"info",
+"warning",
+"purple",
+"dark",
+"light";
+$colorzip: zip($br-color-name, $br-color);
+@each $name,
+$color in ($colorzip) {
+    .br-#{$name} {
+        border:1px solid lighten($color,15%) !important;
+    }
+}
+.no-padding{
+    padding: 0 !important;}
+.no-margin{
+    margin: 0 !important;}

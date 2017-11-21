@@ -1,0 +1,79 @@
+.list-accordion {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex !important;
+    flex-flow: column wrap;
+     border: 1px solid #f3f3f3;
+    border-radius: 6px;
+    transition:height 0.3s ease-in-out;
+    >.item,
+    >* {
+        display: flex;
+        border-bottom: 1px solid #f3f3f3;
+        flex-flow: column wrap;
+        align-items: center;
+        min-height: 30px;
+        .card {
+            border: none;
+            background: #f9f9f9;
+        }
+        .list,
+        ul {
+            border: none;
+            background: #f9f9f9;
+            border-radius: 0;
+            margin: 0;
+        }
+        .collapse {
+            width: 100%;
+            margin: 0;
+        }
+    }
+}
+
+
+.collapse {
+    display: none;
+      &.show {
+        display: block;
+          &.card,
+        &.panel {
+            display: block;
+        }
+        .list,
+        ul {
+            width: 100%
+        }
+        .card,
+        .panel {
+            box-shadow: none !important;
+        }
+    }
+
+    &.card,
+    &.panel {
+        box-shadow: none !important;
+        border: 1px solid rgba(33, 33, 33, .1);
+        transition: none !important;
+        padding: 15px 20px;
+
+        .card,
+        .panel {
+            padding: 15px 20px;
+            box-shadow: none !important;
+            border: none !important;
+        }
+    }
+    .card,
+    .panel {
+        padding: 15px 20px;
+        transition: none !important;
+
+        box-shadow: none !important;
+    }
+}
+
+.collapse-toggle {
+    width: 100%;
+    padding: 10px 0;
+}

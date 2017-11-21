@@ -1,0 +1,93 @@
+.tab-group {
+    display : flex;
+    flex-flow: row wrap;
+     justify-content: flex-start;
+
+    &.vertical {
+        > .tab {
+            display : flex;
+            flex-flow: column wrap;
+            background-color: $white;
+            @extend .shadow-1;
+            min-width: 120px;
+            padding: 0;
+            margin: 0;
+            .tab-item {
+                width: auto;
+                padding: 15px;
+                cursor: pointer;
+
+                &.active {
+                    color: $rose !important;
+
+                    * {
+                        color: $rose !important;
+                    }
+                }
+            }
+        }
+
+        > .content-group {
+            display : flex;
+             justify-content: flex-start;
+            -webkit-align-items: center;
+            align-items: center;
+            max-width: calc(100% - 120px);
+            height: 100%;
+
+            > .tab-content:not(:first-of-type) {
+                @extend .shadow-1;
+                background-color: white;
+                padding: 25px 15px;
+                display: none;
+
+                &.active {
+                    display: block;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    > .tab {
+        display : flex;
+        flex-flow: row wrap;
+        background-color: $white;
+        @extend .shadow-1;
+        padding: 0;
+        margin: 0;
+        .tab-item {
+            width: auto;
+            padding: 15px;
+            cursor: pointer;
+            text-transform: capitalize;
+            &.active {
+                color: $rose !important;
+
+                * {
+                    color: $rose !important;
+                }
+            }
+        }
+    }
+
+    > .content-group {
+         display : flex;
+         justify-content: flex-start;
+        -webkit-align-items: center;
+        align-items: center;
+        flex-flow: row wrap;
+        background-color: white;
+        @extend .shadow-1;
+
+        > .tab-content {
+            padding: 25px 15px;
+            display: none;
+
+            &.active {
+                display: block;
+                @include animate(fadeIn,.5s)
+            }
+        }
+    }
+}

@@ -1,0 +1,138 @@
+
+//
+// Name:           Material Shadows
+// Description:    Mixins for Material Design Shadows.
+// Version:        3.0.1
+//
+// Author:         Denis Malinochkin
+// Git:            https://github.com/mrmlnc/material-shadows
+//
+// twitter:        @mrmlnc
+//
+// ------------------------------------
+
+
+// Mixins
+// ------------------------------------
+
+@mixin z-depth-transition() {
+    transition: box-shadow .28s cubic-bezier(.4, 0, .11, 1);
+}
+
+@mixin z-depth-focus() {
+    box-shadow: 0 0 8px rgba(0, 0, 0, .18), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+@mixin z-depth-2dp() {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .04),
+    0 1px 5px 0 rgba(0, 0, 0, .08),
+    0 3px 1px -2px rgba(0, 0, 0, .11);
+}
+
+@mixin z-depth-3dp() {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .04),
+    0 1px 8px 0 rgba(0, 0, 0, .08),
+    0 3px 3px -2px rgba(0, 0, 0, .11);
+}
+
+@mixin z-depth-4dp() {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .04),
+    0 1px 10px 0 rgba(0, 0, 0, .08),
+    0 2px 4px -1px rgba(0, 0, 0, .11);
+}
+
+@mixin z-depth-6dp() {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .04),
+    0 1px 18px 0 rgba(0, 0, 0, .08),
+    0 3px 5px -1px rgba(0, 0, 0, .11);
+}
+
+@mixin z-depth-8dp() {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .04),
+    0 3px 14px 2px rgba(0, 0, 0, .08),
+    0 5px 5px -3px rgba(0, 0, 0, .11);
+}
+
+@mixin z-depth-16dp() {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .04),
+    0  6px 30px 5px rgba(0, 0, 0, .08),
+    0  8px 10px -5px rgba(0, 0, 0, .11);
+}
+
+@mixin z-depth-24dp() {
+    box-shadow: 0  9px 46px  8px rgba(0, 0, 0, .04),
+    0 24px 38px  3px rgba(0, 0, 0, .08),
+    0 11px 15px -7px rgba(0, 0, 0, .11);
+}
+
+@mixin z-depth($dp: 2) {
+    @if $dp == 2 {
+        @include z-depth-2dp();
+    } @else if $dp == 3 {
+        @include z-depth-3dp();
+    } @else if $dp == 4 {
+        @include z-depth-4dp();
+    } @else if $dp == 6 {
+        @include z-depth-6dp();
+    } @else if $dp == 8 {
+        @include z-depth-8dp();
+    } @else if $dp == 16 {
+        @include z-depth-16dp();
+    } @else if $dp == 24 {
+        @include z-depth-24dp();
+    }
+}
+
+
+// Class generator
+// ------------------------------------
+
+@mixin z-depth-classes($transition: true, $focus: trune) {
+    @if $transition == true {
+        &-transition {
+            @include z-depth-transition();
+        }
+    }
+
+    @if $focus == true {
+        &-focus {
+            @include z-depth-focus();
+        }
+    }
+
+    // The available values for the shadow depth
+    @each $depth in 2, 3, 4, 6, 8, 16, 24 {
+        &shadow-#{$depth}dp {
+            @include z-depth($depth);
+            @include z-depth-transition();
+
+        }
+    }
+}
+
+//shadow class
+@mixin shadow($level: 1) {
+    @if $level == 1 {@include css3-prefix("box-shadow"," 0 1px 13px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.12)")}
+    @else if $level == 2 {@include css3-prefix("box-shadow"," 0 3px 16px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13)")}
+    @else if $level == 3 {@include css3-prefix("box-shadow"," 0 10px 30px rgba(0,0,0,0.12), 0 6px 6px rgba(0,0,0,0.13)")}
+    @else if $level == 4 {@include css3-prefix("box-shadow"," 0 14px 38px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.15)")}
+    @else if $level == 5 {@include css3-prefix("box-shadow"," 0 19px 48px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.15)")}
+}
+//.shadow-1{ @include shadow(1);}
+//.shadow-2{ @include shadow(2);}
+//.shadow-3{ @include shadow(3);}
+//.shadow-4{ @include shadow(4);}
+//.shadow-5{ @include shadow(5);}
+
+@for $i from 1 through 4 {
+    .shadow-#{$i}{
+        @include shadow($i);
+        transition:all 0.4s ease-in-out;
+        &.hover:hover{
+            @include shadow($i + 1);
+        }
+    }
+ }
+.no-shadow{
+    box-shadow:none !important;
+}

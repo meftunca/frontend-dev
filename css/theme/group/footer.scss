@@ -1,0 +1,21 @@
+footer{
+  padding: 20px 30px;
+  display: flex;
+  margin-top: 50px;
+  &.bg-white{
+      border-top:1px solid #e1e1e1;
+  }
+  >.wrap{
+    align-items: flex-start;
+    justify-content: center;
+    .col{
+      text-align: center;
+    }
+  }
+  .list{
+    margin: 0;
+    > li{
+      padding: 0 !important;
+    }
+  }
+}

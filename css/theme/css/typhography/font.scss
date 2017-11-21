@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700');
+$font_family: 'Maven Pro', sans-serif;
+$text-size :( "xxl": 50px,
+"xl": 34px,
+"lg": 25px,
+"md": 21px,
+"sm": 15px,
+"xs": 13px);
+$text-align: ( "center":center,
+"left":left,
+"right":right,
+"justify":justify,
+"center-all":center,
+"left-all":left,
+"right-all":right,
+"justify-all":justify);
+.text {
+    &.bold {
+        font-weight: 600 !important
+    }
+    &.light {
+        font-weight: 300 !important
+    }
+    &.normal {
+        font-weight: 400 !important
+    }
+    &.italic,
+    &em,
+    &.i,
+    &.em {
+        font-style: italic !important
+    }
+    &.underline {
+        text-decoration: underline !important
+    }
+    &.overline {
+        text-decoration: overline !important;
+    }
+    &.line-through {
+        text-decoration: line-through !important;
+    }
+    @each $var,
+    $val in($text-align) {
+        &.#{$var} {
+            text-align: $val !important;
+            * {
+                text-align: $val !important;
+            }
+        }
+    }
+    @each $var,
+    $val in($text-size) {
+        &.#{$var} {
+            font-size: $val;
+        }
+    }
+}
+
+
+/*font user config*/

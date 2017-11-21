@@ -1,0 +1,78 @@
+.alert {
+    position: relative;
+    font-size: $sm_font-size;
+    &[data-alert="true"] {
+        display: none;
+        &.active {
+            position: fixed;
+            display: flex;
+            @include animate("zoomIn", 0.4s);
+        }
+    }
+    background-color: lighten($whiteGray-1, 33%);
+    color: darken($whiteGray-1, 10%);
+    padding:15px 29px 15px 15px;
+    text-align: left;
+    margin: 0.5em 0.25em;
+    $alert-color : $rose,
+    $success,
+    $sublime,
+    $info,
+    $orange-2,
+    $purple-5,
+    $primary;
+    $alert-color-name: 'alert-rose',
+    'alert-success',
+    'alert-sublime',
+    'alert-info',
+    'alert-warning',
+    'alert-purple',
+    'alert-primary';
+    $colorzip: zip($alert-color-name, $alert-color);
+    @each $name,
+    $color in ($colorzip) {
+        &.#{$name} {
+            background-color: lighten($color, 45%);
+            color: darken($color, 5%);
+            &[data-alert="true"] {
+                border: 1px solid lighten($color, 35%);
+            }
+            a {
+                color: darken($color, 25%);
+                &:hover {
+                    color: darken($color, 30%);
+                }
+            }
+            .alert-close {
+                color: lighten($color, 14%);
+                &:hover {
+                    color: $color;
+                }
+            }
+        }
+    }
+    .alert-close {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        cursor: pointer;
+        &:before {
+            font-family: icomoon;
+            content: "\e9ea";
+            font-size: 24px;
+        }
+    }
+    a {
+        font-weight: 400;
+        &:hover {
+            text-decoration: blink;
+        }
+    }
+    .alert-text {
+        position: relative;
+    }
+    &.hidden {
+        display: none;
+        transition: all 0.4s ease-out;
+    }
+}

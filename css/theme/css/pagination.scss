@@ -1,0 +1,110 @@
+.pagination {
+    display: inline-flex;
+    flex-flow: row wrap;
+    list-style: none; //width: max-content;
+    margin: 10px;
+    &>.item {
+        display: inherit;
+        justify-content: center;
+        align-items: center;
+        min-width: 34px;
+        min-height: 40px;
+        padding: 0 12px;
+        box-shadow: none;
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover {
+            background-color: lighten(gray, 45%);
+            color: $info;
+            cursor: pointer;
+        }
+        &.active {
+            color: $info;
+            &:hover {
+                color: darken($info, 2.5%)
+            }
+        }
+        &.active-bg {
+            background-color: $info;
+            color: #fff;
+            border-width: 0;
+            border-radius: 5px;
+            margin: 2px 3px;
+            &:hover {
+                background-color: darken($info, 2.5%);
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+            }
+        }
+        &.prev,
+        &.next {
+            font-family: icomoon;
+            padding-bottom: 2px;
+        }
+        &.prev:before {
+            content: "\e90e";
+            margin-right: 8px;
+            top: 2px;
+            position: relative;
+        }
+        &.next:after {
+            content: "\e90f";
+            margin-left: 8px;
+            top: 2px;
+            position: relative;
+        }
+    } //pagination style
+    &:not(.box):not(.box.line)>.item {
+        border-radius: 5px;
+    }
+    &.box {
+        border: 1px solid $whiteGray-3;
+        border-radius: 10px;
+    }
+    &.line {
+        >.item:not(:first-child) {
+            border-left: 1px solid $whiteGray-3;
+        }
+    }
+    &.between {
+        >.item {
+            margin: 0 4px;
+            border: 1px solid $whiteGray-3;
+            border-radius: 5px;
+        }
+    } //size
+    &.paginate-lg {
+        >.item {
+            font-size: 20px;
+        }
+    }
+    &.paginate-md {
+        >.item {
+            font-size: 18px;
+        }
+    }
+    &.paginate-xl {
+        >.item {
+            font-size: 24px;
+        }
+    } //dropdown settings
+    &>.item .dropdown {
+        & {
+            margin: 0;
+            padding: 0;
+        }
+        &>.dropdown-toggle {
+            font-size: inherit;
+            padding: 10px 4px;
+        }
+        &>.dropdown-menu {
+            top: 15px;
+            &>li {
+                text-align: left;
+            }
+        }
+    }
+}

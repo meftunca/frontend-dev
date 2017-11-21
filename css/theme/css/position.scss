@@ -1,0 +1,94 @@
+$position-name: "center","left","right"; // $position-direction:;
+$position-row: "top","center","bottom";
+$position-column: 0,"auto",100%;
+$position-column2: 0,"auto",100%;
+$pos-zip: zip($position-name,$position-column,$position-column2);
+@each $var,$val,$val2 in($pos-zip) {
+    .position {
+        vertical-align: middle;
+        position: absolute;
+        margin: -10px 20px;
+      //-webkit-logical-height: fit-content;
+      //text-align: left;
+      //-webkit-logical-width: fit-content;
+      &.top-#{$var} {
+            top: 1%;
+
+            @if $var == 'right' {
+                right: 0;
+            }
+
+            @else if $var == 'center' {
+                margin-left: auto ;
+                margin-right: auto ;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+            @else {
+                left: 0;
+            }
+        }
+
+        &.center-#{$var} {
+          top: 40%;
+          transform: translateY(-40%);
+
+          @if $var == 'right' {
+               right: 1%;
+            }
+
+            @else if $var == 'center' {
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+            }
+            @else {
+                left: 1%;
+            }
+            text-align: center;
+        }
+
+        &.bottom-#{$var} {
+            bottom: 1%;
+
+            @if $var == 'right' {
+                right: 0;
+            }
+
+            @else if $var == 'center' {
+                margin-left: auto !important;
+                margin-right: auto !important;
+                left: 0;
+                right: 0;
+            }
+            @else {
+                left: 0;
+            }
+        }
+    }
+
+}
+ 
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index:999;
+}
+
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}

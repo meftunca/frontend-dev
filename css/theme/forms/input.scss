@@ -1,0 +1,106 @@
+form {
+    padding: 2.3em 1.5em;
+    display: inline-block;
+}
+
+input,
+textarea {
+    border-radius: .25rem;
+    border: 0.04em solid $whiteGray-3;
+    padding: .275rem .75rem;
+    display: inline-block;
+    background-color: #fefefe;
+    outline: 0;
+    line-height: 1.5;
+    margin: 4px 0;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    &:hover {
+        border-color: $info;
+    }
+    &:focus {
+        border-color: $info;
+        box-shadow: 0 0 0 0.23rem rgba($info, .23);
+    }
+    &.success {
+        color: #28a745;
+        border-color: lighten($color: #28a745, $amount: 10%);
+        &:focus {
+            box-shadow: 0 0 0 0.23rem rgba(#28a745, .25);
+        }
+    }
+    &.error {
+        color: #dc3545;
+        border-color: #dc3545;
+        &:focus {
+            box-shadow: 0 0 0 0.23rem rgba(#dc3545, .25);
+        }
+    }
+    &.warning {
+        color: $orange-1;
+        border-color: $orange-1;
+        &:focus {
+            box-shadow: 0 0 0 0.23rem rgba($orange-2, .25);
+        }
+    }
+}
+
+input[type="file"],
+input[type="image"],
+input[type="reset"],
+input[type="range"] {
+    border: none;
+    background: inherit;
+}
+
+
+/*line forms*/
+
+form.line {
+    input,
+    textarea {
+        border-radius: 0;
+        border: none;
+        border-bottom: 2px solid $whiteGray-2;
+        box-shadow: none;
+        margin: 0 2px;
+    }
+    input[type="file"],
+    input[type="image"],
+    input[type="reset"],
+    input[type="submit"],
+    input[type="range"] {
+        border: none;
+        background: inherit;
+    }
+    input:focus,
+    textarea:focus {
+        border-color: $rose !important;
+        @include css3-prefix(transition, all 0.8s ease);
+    }
+}
+
+.fileput {
+    display: inline-flex;
+    width: auto;
+    flex-flow: column wrap;
+    justify-content: center;
+    border: 1px solid #e0dddd;
+    padding: .75em 1.25em;
+    user-select: none;
+    .fileput-text {
+        padding: 10px;
+    }
+    .fileput-list {
+        width: 100%;
+        display: none;
+        &.active {
+            display: block;
+        }
+        span {
+            margin-right: 15px;
+        }
+    }
+    input[type="file"] {
+        display: none;
+    }
+}

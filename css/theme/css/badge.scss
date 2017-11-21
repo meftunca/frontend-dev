@@ -1,0 +1,159 @@
+.badge{
+     display : inline-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-self: center;
+    align-self: center;
+    -webkit-align-items: center;
+    align-items: center;
+    align-content: center;
+    min-width: 35px;
+    min-height: 35px;
+    padding: 10px;
+    text-indent:0 !important;
+    transition:all 0.3s ease-in-out;
+    border:1px solid #eee;
+    text-align: center;
+    background: #eee;
+
+    &.pills{
+         padding: 10px 25px;
+    }
+
+    $badge-width: 35px,40px,50px,60px,75px,120px;
+     $badge-font-size :11px,13px,16px,20px,35px,50px;
+    $badge-size-name : "xs","sm","md","lg","xl","xxl";
+     $badge-sizes-zip:zip( $badge-size-name,$badge-font-size,$badge-width);
+
+    @each $class,$font-size,$width in($badge-sizes-zip){
+        &.badge-#{$class} {
+            font-size:$font-size;
+            min-width: $width;
+            min-height: $width;
+
+            width: auto;
+        }
+    }
+
+ 
+
+}
+$btn-color: $default,
+$rose,
+$success,
+$sublime,
+$info,
+$warning,
+$purple-5,
+$dark;
+$btn-color-name: 'btn-default,.badge-default,.item-default',
+'btn-rose,.badge-rose,.item-rose',
+'btn-success,.badge-success,.item-success',
+'btn-sublime,.badge-sublime,.item-sublime',
+'btn-info,.badge-info,.item-info',
+'btn-warning,.badge-warning,.item-warning',
+'btn-purple,.badge-purple,.item-purple',
+'btn-dark,.badge-dark,.item-dark';
+$colorzip: zip($btn-color-name, $btn-color);
+@each $name,
+$color in ($colorzip) {
+    .btn-group .#{$name}{
+        &:focus,&:hover {
+            background-color: darken($color,5%) !important;
+            box-shadow:0 0 0 0.22em rgba($color,0.3) !important;
+        }
+    }
+    .#{$name} {
+        background-color: $color;
+        border-color: darken($color,3%);
+        &:focus,&:hover {
+            background-color: darken($color,5%);
+            box-shadow:0 0 0 0.22em rgba($color,0.3);
+        }
+
+        &.line  {
+            background-color: $white;
+            border: 1px solid $color;
+            color: $color;
+            box-shadow: none;
+
+            &:focus,
+            &:hover {
+                background-color: $color;
+                box-shadow:0 0 0 0.22em rgba($color,0.3);
+                color: $white;
+            }
+        }
+        &.outline  {
+            background-color: transparent !important;
+            border: 1px solid $color;
+            color: $color;
+            box-shadow: none;
+
+        }
+        &.hover-line {
+            background-color: $color;
+            border-color:transparent;
+            color: $white;
+
+            &:focus,
+            &:hover {
+                background-color: transparent !important;
+                border: 1px solid $color;
+                color: $color;
+
+            }
+        }
+    }
+}
+
+.btn-white {
+    border: 1px solid rgba(0, 0, 0, .13);
+    background-color: white;
+    color: $gray-3;
+    &:hover{
+        background-color:#f9f9f9;
+    }
+}
+
+/*button renkler*/
+
+.badge-default,
+.badge-info,
+.badge-purple,
+.badge-rose,
+.badge-sublime,
+.badge-success,
+.badge-warning,
+.badge-dark,
+.btn-default,
+.btn-info,
+.btn-purple,
+.btn-rose,
+.btn-sublime,
+.btn-success,
+.btn-dark,
+.btn-warning,
+.item-default,
+.item-info,
+.item-purple,
+.item-rose,
+.item-sublime,
+.item-success,
+.item-dark,
+.item-warning,
+.text-white,
+.text-white *:not(.dropdown-menu) {
+    color: $white;
+}
+
+* {
+    &.dark,
+    &.dark *:not(.dropdown-menu *) {
+        color: #ffffff !important;
+    }
+    &.light:not(.text),
+    &.light *:not(.text) {
+        color: #212121 !important;
+    }
+}

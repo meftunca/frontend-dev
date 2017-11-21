@@ -1,0 +1,153 @@
+/**
+ * This is a scss port of the wonderfull https://github.com/daneden/animate.css
+ * Animations: Copyright (c) 2016 Daniel Eden
+ */
+@import 'keyframes/fade';
+@import 'keyframes/zooming';
+@import 'keyframes/rotate';
+@import 'keyframes/slide';
+@import 'keyframes/bounce';
+@import 'keyframes/flip';
+
+// Keep track of included keyframes
+$animate-keyframes: ();
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @if ($name == 'dropdownIn') {
+      @include dropdownIn();
+    } @else if ($name == 'dropdownOut') {
+      @include dropdownOut();
+    } @else if ($name == 'fadeIn') {
+      @include fadeIn();
+    } @else if ($name == 'fadeInDown') {
+      @include fadeInDown();
+    } @else if ($name == 'fadeInDownBig') {
+      @include fadeInDownBig();
+    } @else if ($name == 'fadeInLeft') {
+      @include fadeInLeft();
+    } @else if ($name == 'fadeInLeftBig') {
+      @include fadeInLeftBig();
+    } @else if ($name == 'fadeInRight') {
+      @include fadeInRight();
+    } @else if ($name == 'fadeInRightBig') {
+      @include fadeInRightBig();
+    } @else if ($name == 'fadeInUp') {
+      @include fadeInUp();
+    } @else if ($name == 'fadeInUpBig') {
+      @include fadeInUpBig();
+    } @else if ($name == 'fadeOut') {
+      @include fadeOut();
+    } @else if ($name == 'fadeOutDown') {
+      @include fadeOutDown();
+    } @else if ($name == 'fadeOutDownBig') {
+      @include fadeOutDownBig();
+    } @else if ($name == 'fadeOutLeft') {
+      @include fadeOutLeft();
+    } @else if ($name == 'fadeOutLeftBig') {
+      @include fadeOutLeftBig();
+    } @else if ($name == 'fadeOutRight') {
+      @include fadeOutRight();
+    } @else if ($name == 'fadeOutRightBig') {
+      @include fadeOutRightBig();
+    } @else if ($name == 'fadeOutUp') {
+      @include fadeOutUp();
+    } @else if ($name == 'fadeOutUpBig') {
+      @include fadeOutUpBig();
+    } @else if ($name == 'zoomIn') {
+      @include zoomIn();
+    } @else if ($name == 'zoomInDown') {
+      @include zoomInDown();
+    } @else if ($name == 'zoomInLeft') {
+      @include zoomInLeft();
+    } @else if ($name == 'zoomInRight') {
+      @include zoomInRight();
+    } @else if ($name == 'zoomInUp') {
+      @include zoomInUp();
+    } @else if ($name == 'zoomOut') {
+      @include zoomOut();
+    } @else if ($name == 'zoomOutDown') {
+      @include zoomOutDown();
+    } @else if ($name == 'zoomOutLeft') {
+      @include zoomOutLeft();
+    } @else if ($name == 'zoomOutRight') {
+      @include zoomOutRight();
+    } @else if ($name == 'zoomOutUp') {
+      @include zoomOutUp();
+    } @else if ($name == 'rotateIn') {
+      @include rotateIn();
+    } @else if ($name == 'rotateInDownLeft') {
+      @include rotateInDownLeft();
+    } @else if ($name == 'rotateInDownRight') {
+      @include rotateInDownRight();
+    } @else if ($name == 'rotateInUpLeft') {
+      @include rotateInUpLeft();
+    } @else if ($name == 'rotateInUpRight') {
+      @include rotateInUpRight();
+    } @else if ($name == 'rotateOut') {
+      @include rotateOut();
+    } @else if ($name == 'rotateOutDownLeft') {
+      @include rotateOutDownLeft();
+    } @else if ($name == 'rotateOutDownRight') {
+      @include rotateOutDownRight();
+    } @else if ($name == 'rotateOutUpLeft') {
+      @include rotateOutUpLeft();
+    } @else if ($name == 'rotateOutUpRight') {
+      @include rotateOutUpRight();
+    } @else if ($name == 'slideInDown') {
+      @include slideInDown();
+    } @else if ($name == 'slideInLeft') {
+      @include slideInLeft();
+    } @else if ($name == 'slideInRight') {
+      @include slideInRight();
+    } @else if ($name == 'slideInUp') {
+      @include slideInUp();
+    } @else if ($name == 'slideOutDown') {
+      @include slideOutDown();
+    } @else if ($name == 'slideOutLeft') {
+      @include slideOutLeft();
+    } @else if ($name == 'slideOutRight') {
+      @include slideOutRight();
+    } @else if ($name == 'slideOutUp') {
+      @include slideOutUp();
+    } @else if ($name == 'bounceIn') {
+      @include bounceIn();
+    } @else if ($name == 'bounceInDown') {
+      @include bounceInDown();
+    } @else if ($name == 'bounceInLeft') {
+      @include bounceInLeft();
+    } @else if ($name == 'bounceInRight') {
+      @include bounceInRight();
+    } @else if ($name == 'bounceInUp') {
+      @include bounceInUp();
+    } @else if ($name == 'bounceOut') {
+      @include bounceOut();
+    } @else if ($name == 'bounceOutDown') {
+      @include bounceOutDown();
+    } @else if ($name == 'bounceOutLeft') {
+      @include bounceOutLeft();
+    } @else if ($name == 'bounceOutRight') {
+      @include bounceOutRight();
+    } @else if ($name == 'bounceOutUp') {
+      @include bounceOutUp();
+    } @else if ($name == 'flip') {
+      @include flip();
+    } @else if ($name == 'flipInX') {
+      @include flipInX();
+    } @else if ($name == 'flipInY') {
+      @include flipInY();
+    } @else if ($name == 'flipOutX') {
+      @include flipOutX();
+    } @else if ($name == 'flipOutY') {
+      @include flipOutY();
+    }
+  }
+}
+
+@mixin animate($name, $opts: '') {
+  @if not (map-has-key($animate-keyframes, $name)) {
+    @include keyframes($name);
+    $animate-keyframes: map-merge($animate-keyframes, ($name: "")) !global;
+  }
+  animation: #{$name} #{$opts};
+}

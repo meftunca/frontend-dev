@@ -1,0 +1,26 @@
+@if $normalize_headings==true {
+    $headings: h1, h2, h3, h4, h5, h6;
+    $headingSize: $xxl_font-size, $xl_font-size, $lg_font-size, $md_font-size, $sm_font-size, $xs_font-size;
+    $headingzip: zip($headings, $headingSize);
+    @each $heading,
+    $size,
+    $margin in ($headingzip) {
+        #{$heading},
+        .#{$heading} {
+            font-size: calc(#{$size} + 4px);
+            text-transform: capitalize;
+            font-weight: 400;
+        }
+        #{$heading},
+        .#{$heading} {
+            .samll,
+            small {
+                font-size: $size*9/10;
+                @include text(transform, capitalize);
+                font-weight: 400;
+                color: #666666;
+                margin: 0 5px;
+            }
+        }
+    }
+}

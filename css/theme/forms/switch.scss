@@ -1,0 +1,99 @@
+.switch-group {
+    position           : relative;
+    width              : 60px;
+    -webkit-user-select: none;
+    -moz-user-select   : none;
+    -ms-user-select    : none;
+    display: inline-block;
+    margin: 0 15px;
+    input.switch {
+        display: none;
+    }
+
+    label.switch {
+        display         : block;
+        overflow        : hidden;
+        cursor          : pointer;
+        height          : 3px;
+        padding         : 0;
+        line-height     : 3px;
+        border-radius   : 22px;
+        background-color: #eee;
+        transition      : background 0.5s;
+
+        &:before {
+            content      : "";
+            display      : block;
+            width        : 22px;
+            margin       : -9.5px;
+            background   : #bdbdbd;
+            position     : absolute !important;
+            top          : 0;
+            bottom       : 0;
+            right        : 53px;
+            border-radius: 50%;
+            transition   : all 0.4s ease-in;
+        }
+    }
+
+    input.switch:checked + label.switch {
+        background-color: $rose ;
+
+        .switch-inner {
+            margin-left: 0;
+        }
+
+        &:before {
+            right           : 0;
+            background-color: $rose;
+        }
+    }
+
+    &.sublime input:checked + label {
+        background-color: $sublime !important;
+
+        &::before {
+            background-color: $sublime !important;
+        }
+    }
+
+    &.success input:checked + label {
+        background-color: $success !important;
+
+        &::before {
+            background-color: $success !important;
+        }
+    }
+
+    &.info input:checked + label {
+        background-color: $info !important;
+
+        &::before {
+            background-color: $info !important;
+        }
+    }
+
+    &.default input:checked + label {
+        background-color: $default !important;
+
+        &::before {
+            background-color: $default !important;
+        }
+    }
+
+    &.warning input:checked + label {
+        background-color: $warning !important;
+
+        &::before {
+            background-color: $warning !important;
+        }
+    }
+
+    &.purple input:checked + label {
+        background-color: $purple !important;
+
+        &::before {
+            background-color: $purple !important;
+        }
+    }
+}

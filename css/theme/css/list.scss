@@ -1,0 +1,309 @@
+ul {
+    &.number,
+    &.circle,
+    &.roman,
+    &.latin,
+    &.default,
+    &.square {
+        width: auto;
+        padding: 10px 15px;
+        margin: 0 10px;
+        display: inline-block;
+        text-transform: capitalize;
+    }
+    &.number {
+        list-style-type: decimal;
+    }
+    &.circle {
+        list-style-type: circle
+    }
+    &.roman {
+        list-style-type: lower-romann
+    }
+    &.latin {
+        list-style-type: lower-latin
+    }
+    &.default {
+        list-style-type: unset
+    }
+    &.square {
+        list-style-type: square
+    }
+}
+
+@mixin listType_color($type, $color) {
+    &.line {
+        .#{$type} {
+            color: $color;
+            border-bottom: 1px solid $color !important;
+            & a {
+                color: $color
+            }
+        }
+        >.#{$type} {
+            border-bottom: 1px solid $color !important;
+            color: $color;
+            &>a {
+                color: $color
+            }
+        }
+    }
+    &.box {
+        >.#{$type} {
+            background-color: $color;
+            color: #FFFFFF !important;
+            &:hover {
+                background-color: $color !important;
+            }
+            & * {
+                color: #FFFFFF
+            }
+        }
+    }
+}
+
+@mixin listType() {
+    &.link>*:not(.not-link):hover,
+    .link:hover {
+        background-color: rgba(3, 3, 3, .04);
+    }
+    &.line {
+        li,
+        .item {
+            border-bottom: 1px solid $whiteGray-3;
+        }
+    }
+    &.box {
+        border: 1px solid $whiteGray-3;
+        >li:not(.divider) {
+            min-height: 50px !important;
+            padding: 0.475em 1em;
+        }
+    }
+}
+
+li,
+li a:not(.dropdown-toggle) {
+    font-size: $sm_font-size;
+}
+
+.list {
+    display: inline-flex;
+    flex-flow: column wrap;
+    border-radius: 6px;
+    width: auto;
+    position: relative;
+    z-index: 1;
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+    @include listType();
+    &.line,
+    &.box {
+        li,
+        .item {
+            &.default,
+            &.rose,
+            &.war,
+            &.sublime,
+            &.info,
+            &.active,
+            &.warning,
+            &.purple,
+            &.danger {
+                width: calc(100% + 2px);
+                height: calc(100% + 2px);
+                margin-left: -1px;
+                margin-right: -1px;
+                margin-top: -1px;
+                margin-bottom: -1px;
+            }
+        }
+    }
+    li:first-child {
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    li,
+    .item {
+        >*:not(:last-of-type) {
+            margin-right: 10px;
+        }
+    }
+    &.group {
+        height: auto;
+        display: flex;
+        flex-flow: column wrap;
+        overflow: hidden;
+        .item,
+        li {
+            display: flex;
+            height: auto;
+            padding: 10px 12px;
+            flex-flow: column wrap;
+            align-self: center;
+            align-content: center;
+            align-items: center;
+            >.item-head {
+                display: flex;
+                justify-content: space-between;
+                flex-flow: row wrap;
+                align-items: center;
+                width: 100%;
+                margin-top: 3px;
+                >* {
+                    margin: 0;
+                    display: inline-flex;
+                    font-weight: bold;
+                    text-indent: 5px;
+                }
+            }
+            >.item-content {
+                padding: 6px 0;
+            }
+        }
+    }
+    &.inline {
+        display: inline-flex;
+        flex-direction: row;
+        -webkit-box-orient: vertical;
+        & li,
+        & .item {
+            width: auto !important;
+        }
+    }
+    &:not(.group)> :not(.divider),
+    li:not(.divider),
+    &:not(.group) .item:not(.divider) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        min-height: 40px;
+        padding: 0 10px;
+        align-self: center;
+        width: 100%;
+        @include css3-prefix(transition, all .5s ease);
+        >.list,
+        ul {
+            margin: 15px 0;
+        }
+    }
+    $color: $default,
+    $rose,
+    $success,
+    $sublime,
+    $info,
+    $warning,
+    $purple-5,
+    $danger;
+    $listClass: 'default',
+    'rose',
+    'war',
+    'sublime',
+    'info,active',
+    'warning',
+    'purple',
+    'danger';
+    $list-zip: zip($listClass, $color);
+    @each $class,
+    $lColors in ($list-zip) {
+        //@include listType($class, $lColors);
+        @include listType_color($class, $lColors);
+    }
+    /* Direction items*/
+    >* {
+        >.left {
+            float: left;
+            margin: 5px 15px -5px;
+            text-align: left;
+            display: inline-block;
+        }
+        >.right {
+            &.badge {
+                position: absolute;
+                top: 30%;
+                bottom: inherit;
+                right: 0;
+                margin: 0 10px;
+            }
+            &:not(.badge) {
+                position: absolute;
+                right: 0;
+                top: 47%;
+                bottom: 0;
+                float: right;
+                margin: 0 10px;
+                &.fa {
+                    top: 0;
+                    &::before {
+                        align-items: center;
+                        display: flex;
+                        /* align-self: center; */
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        >.center {
+            width: 100%;
+            margin: 0 10px;
+            text-align: center;
+            display: inline-block;
+        }
+    }
+    &.in-border-bottom {
+        li {
+            border-bottom: 1px solid $whiteGray-4;
+        }
+    }
+}
+
+.card .list,
+.panel .list {
+    border: 0 !important;
+    width: 100%;
+}
+
+.folder {
+    padding: 20px 0;
+    display: block !important;
+    &,
+    & ul {
+        list-style: none;
+    }
+    li,
+    .item {
+        min-height: 30px;
+        &::before {
+            font-family: FontAwesome;
+            font-size: 18px;
+            content: '\f15b';
+            margin-right: 10px;
+        }
+    }
+    .folder-list::before {
+        font-family: FontAwesome;
+        font-size: 22px;
+        content: '\f07b';
+        margin-right: 10px;
+        font-weight: 500;
+    }
+    .folder-name {
+        font-weight: 500;
+        position: relative;
+        top: -3px;
+    }
+    .folder-list {}
+    .folder-menu {
+        margin-top: 0;
+        margin-bottom: -5px;
+        display: block !important;
+        >.item::before {
+            font-family: FontAwesome;
+            font-size: 14px;
+            content: '\f15b';
+            margin-right: 10px;
+        }
+    }
+}

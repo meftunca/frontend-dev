@@ -1,0 +1,31 @@
+.progress {
+    display: inline-flex;
+    width: 100%;
+    background-color: $whiteGray-4;
+    min-height: 20px;
+    margin: 25px 0;
+    overflow: hidden;
+    border-radius: 3px;
+    padding: 0 !important;
+    position: relative;
+    .progress-bar {
+        width: auto;
+        height: 100%;
+        color: #fff;
+        padding: 0;
+        text-align: center;
+        &.stripped {
+            background-size: 30px 30px;
+            background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+            animation: animate-stripes 3s linear infinite;
+        }
+        @keyframes animate-stripes {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 60px 0;
+            }
+        }
+    }
+}

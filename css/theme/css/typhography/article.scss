@@ -1,0 +1,21 @@
+.article {
+  display: flex;
+  padding: 20px 3%;
+  flex-flow: column wrap;
+  > .article-title {
+    font-size:$xl_font-size;
+    > a{
+      font-size:inherit;}
+  }
+  > .article-subtitle {
+    font-size:$lg_font-size;
+    > a{
+      font-size:inherit;}
+  }
+  > .article-meta, .article-meta a {
+    color: $gray-3;
+  }
+  > .article-link a:not(:first-child) {
+    margin-left: 6px;
+  }
+}

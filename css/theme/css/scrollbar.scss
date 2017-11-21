@@ -1,0 +1,41 @@
+$scrollbar-width: 6px;
+$scrollbar-min-width: 3px;
+$scrollbar-black: #454545;
+$scrollbar-gray: #ABB2B9;
+$scrollbar-orange: #FB8C00;
+$scrollbar-red: #F44336;
+$scrollbar-puprle: #9C27B0;
+$scrollbar-green: #4CAF50;
+$scrollbar-teal: #26A69A;
+$scrollbar-blue: #1E88E5;
+$scrollbar-colors:#999999, #666666, #D81B60, #454545, #ABB2B9, #FB8C00, #F44336, #9C27B0, #4CAF50, #26A69A, #1E88E5;
+
+
+$scrollbar-classes:'.sidebar-content', '.scrolspy', '.scrollbar-rose', '.scrollbar-black', '.scrollbar-gray', '.scrollbar-orange', '.scrollbar-red', '.scrollbar-puprle', '.scrollbar-green', '.scrollbar-teal', '.scrollbar-blue';
+$scrollbar-zip: zip($scrollbar-classes,$scrollbar-colors);
+@each $class,$colors in($scrollbar-zip) {
+    #{$class}{
+        overflow: scroll;
+     }
+    #{$class}::-webkit-scrollbar {
+        width   : $scrollbar-width;
+        height  : $scrollbar-width;
+    }
+
+    #{$class}::-webkit-scrollbar-track {
+        // border-radius: 10px;
+        background: transparent;
+    }
+
+    #{$class}::-webkit-scrollbar-thumb {
+        // border-radius: 10px;
+        background: $colors;
+        border-radius: 10px;
+
+    }
+
+    #{$class}::-webkit-scrollbar-thumb:window-inactive {
+        background: $colors;
+        width     : $scrollbar-min-width;
+    }
+}
