@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table</title>
+    <link rel="stylesheet" href="../css/test.css">
+</head>
+<body>
+<br><br>
+
+<div class="data-table">
+    <div class="wrap">
+        <div class="col xl-1-2">
+            <div class="dropdown">
+                <button class="btn btn-rose btn-md dropdown-toggle" type='button' data-toggle="selectbox">dropdown</button>
+                <ul class="dropdown-menu" data-type="selectbox" input-name="deneme" input-value="">
+                    <li select-value="value1">select box list 1</li>
+                    <li select-value="value2">select box list 2</li>
+                    <li select-value="value3">select box list 3</li>
+                    <li select-value="value4">select box list 4</li>
+                    <li select-value="value5">select box list 5</li>
+                 </ul></div>
+        </div>
+        <div class="col xl-1-2">
+            <div class="field search">
+                <label for="d1"></label><input class="input-search" type="text" id="d1" data-search="true">
+            </div>
+        </div>
+    </div>
+
+    <table class="table stripped" data-sortable="true">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td scope="row">1</td>
+            <td >Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <td scope="row">2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <td scope="row">3</td>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+        </tfoot>
+    </table>
+    <nav aria-label="pagination" role="navigation">
+        <div class="pagination box line paginate-xl">
+            <a href="#" class="item prev">previous</a>
+            <a href="#" class="item active-bg">1</a>
+            <a href="#" class="item">2</a>
+            <a href="#" class="item">3</a>
+            <a href="#" class="item">4</a>
+            <a href="#" class="item">5</a>
+            <a href="#" class="item">6</a>
+            <a href="#" class="item">7</a>
+            <a href="#" class="item">8</a>
+            <a href="#" class="item">9</a>
+            <a href="#" class="item">10</a>
+            <a href="#" class="item next"> next </a>
+        </div>
+    </nav>
+</div><br><br>
+<table class="table stripped" data-sortable="true">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row">1</td>
+        <td >Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <td scope="row">2</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <td scope="row">3</td>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </tfoot>
+</table>
+<table class="table underLine" data-sortable="true">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row">1</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <td scope="row">2</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <td scope="row">3</td>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
+<table class="table line" data-sortable="true">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row">1</td>
+        <td>Mark last 2</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <td scope="row">2</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <td scope="row">3</td>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
+<table class="table hover" data-sortable="true">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row">1</td>
+        <td>Mark last</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <td scope="row">2</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <td scope="row">3</td>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
+
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="../js/comeback.js"></script>
+<!--<script src="../js/jsPlugins/table.js"></script>-->
+<script>
+    $("table").filter();
+    $("table").table();
+</script>
+</body>
+</html>
