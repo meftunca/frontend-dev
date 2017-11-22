@@ -142,11 +142,9 @@ small {
     text-transform: capitalize;
 }
 
-p {
-    font-weight: 400;
-    font-size: $xs_font-size;
-    margin: 6px 0;
-}
+ li{
+    text-transform: capitalize;
+ }
 
 code,
 kbd,

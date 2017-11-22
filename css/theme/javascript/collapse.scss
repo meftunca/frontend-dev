@@ -7,6 +7,7 @@
     border-radius: 6px;
     transition:height 0.3s ease-in-out;
     padding: 5px 15px;
+	align-items: flex-start;
     >.item,
     >* {
         display: flex;

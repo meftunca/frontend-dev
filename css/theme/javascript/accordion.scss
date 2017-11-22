@@ -5,11 +5,10 @@
     width: auto;
     padding: 0;
     .item {
-        text-indent: 15px;
-        position: relative;
+    padding: 0 10px;
+    position: relative;
         min-height: 40px;
         align-content: center;
-        font: 400 $sm_font-size inherit;
         &,
         &>a,
         .toggle {
@@ -18,8 +17,7 @@
             align-self: flex-start;
             min-height: 40px;
             align-items: center;
-            font-size: 13px !important;
-            width: 100%;
+             width: 100%;
         }
         .toggle {
             position: relative;

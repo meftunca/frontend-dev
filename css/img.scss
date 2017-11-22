@@ -5,8 +5,6 @@ $sizes :(
 "md":80px,
 "lg":125px,
 "xl":200px,
-"embed" :100%,
-
 );
 
 @each $var,$val in($sizes){
@@ -16,14 +14,19 @@ $sizes :(
 
     }
 }
+.img-embed{
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
  img.zoom {
     -moz-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-}
-img.zoom:hover {
+&.zoom:hover {
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
 }
 

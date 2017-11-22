@@ -107,7 +107,7 @@ $color in ($bg) {
     }
 
     .text-#{$class} {
-        color: $color;
+        color: lighten($color,10%) !important;
     }
 }
 .bg-white{

@@ -1,7 +1,8 @@
 .header-group{
   position: relative;
+  margin-bottom: 50px;
   &.header-img{
-    background: no-repeat top center;
+    background: no-repeat top center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

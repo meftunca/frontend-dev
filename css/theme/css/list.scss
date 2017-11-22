@@ -88,12 +88,12 @@ li a:not(.dropdown-toggle) {
 }
 
 .list {
-    display: inline-flex;
+    display: flex;
     flex-flow: column wrap;
     border-radius: 6px;
     width: auto;
     position: relative;
-    z-index: 1;
+    z-index: 3;
     list-style: none;
     margin: 10px 0;
     padding: 0;

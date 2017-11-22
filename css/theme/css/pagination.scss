@@ -76,21 +76,17 @@
             border-radius: 5px;
         }
     } //size
-    &.paginate-lg {
-        >.item {
-            font-size: 20px;
-        }
-    }
-    &.paginate-md {
+    &.paginate-lg,&.paginate-xl {
         >.item {
             font-size: 18px;
         }
     }
-    &.paginate-xl {
+    &.paginate-md {
         >.item {
-            font-size: 24px;
+            font-size: 16px;
         }
-    } //dropdown settings
+    }
+
     &>.item .dropdown {
         & {
             margin: 0;
@@ -101,7 +97,7 @@
             padding: 10px 4px;
         }
         &>.dropdown-menu {
-            top: 15px;
+            top: 100%;
             &>li {
                 text-align: left;
             }

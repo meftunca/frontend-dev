@@ -1,83 +1,86 @@
 .carousel-slider {
+  position: relative;
+  background: #eee;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  overflow: hidden;
+  > .carousel-content {
     position: relative;
-    background: #eee;
+    @include css3_prefix(display, inline-flex);
+    user-select: none;
+    > .slide-item {
+      background: white;
+      &.active {
+      }
+    }
+  }
+  .carousel-next-btn,
+  .carousel-prev-btn {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 14px 8px 14px;
+    outline: none;
+    border: none;
+    transition: all 0.25s ease-in-out;
+    text-align: center;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%,-50%);
+    -ms-transform: translate(-0%,-50%);
+    min-height: 40px;
+    min-width: 40px;
+    &:hover {
+      background-color: black;
+      cursor: pointer;
+    }
+  }
+  .carousel-next-btn {
+    position: absolute;
+    right: 0;
+  }
+  .carousel-prev-btn {
+    position: absolute;
+    left: 0;
+  }
+  .carousel-pagination {
     width: 100%;
-    height: auto;
-    overflow: hidden;
-    padding: 0;
-    >.carousel-content {
+    display: inline-flex;
+    justify-content: center;
+    bottom: 0;
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    &.stick {
+      .item {
+        border-radius: 17px;
+        min-width: 30px;
+        min-height: 5px !important;
+        cursor: pointer;
         position: relative;
-        @include css3_prefix(display, inline-flex);
-        user-select: none;
-        >.slide-item {
-            background: white;
-            &.active {}
-        }
+        top: -10px;
+      }
     }
-    .carousel-next-btn,
-    .carousel-prev-btn {
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        padding: 10px 14px 8px 14px;
-        outline: none;
-        border: none;
-        transition: all 0.25s ease-in-out;
-        text-align: center;
-        opacity: 0;
-        top: 45%;
-        min-height: 50px;
-        bottom: 45%;
-        min-width: 60px;
-        &:hover {
-            background-color: black;
-            cursor: pointer;
-        }
+    .item {
+      background: rgba(0, 0, 0, 0.7);
+      transition: all 0.25s ease-in-out;
+      color: white;
+      min-height: 10px;
+      min-width: 10px;
+      border-radius: 50%;
+      margin: 5px;
+      &:hover {
+        background-color: black;
+      }
     }
-    .carousel-next-btn {
-        position: absolute;
-        right: 0;
-    }
-    .carousel-prev-btn {
-        position: absolute;
-        left: 0;
-    }
-    .carousel-pagination {
-        width: 100%;
-        display: inline-flex;
-        justify-content: center;
-        bottom: 0;
-        position: absolute;
-        opacity: 0;
-        left: 0;
-        &.stick {
-            .item {
-                border-radius: 17px;
-                min-width: 30px;
-                min-height: 5px !important;
-                cursor: pointer;
-                position: relative;
-                top: -10px;
-            }
-        }
-        .item {
-            background: rgba(0, 0, 0, 0.7);
-            transition: all 0.25s ease-in-out;
-            color: white;
-            min-height: 10px;
-            min-width: 10px;
-            border-radius: 50%;
-            margin: 5px;
-            &:hover {
-                background-color: black;
-            }
-        }
-    }
+  }
 }
 
 .carousel-slider:hover {
-    .carousel-next-btn,
-    .carousel-prev-btn,
-    .carousel-pagination {
-        opacity: 1;
-    }
+  .carousel-next-btn,
+  .carousel-prev-btn,
+  .carousel-pagination {
+    opacity: 1;
+  }
 }
