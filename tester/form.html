@@ -147,17 +147,22 @@
 
 
 <form action="">
-    <h4>form field</h4>
+    <h4>form field</h4><br>
     <div class="field">
-        <label class="label" for="d1"><i class="fa fa-user-o"></i></label><input type="text" id="d1">
+       <input type="text" id="d1" placeholder="userName"><label class="label" for="d1" >
+        <i class="fa fa-user-o"></i>
+    </label>
     </div>
 </form>
 
 <div class="field">
-    <label class="label" for="d2"><i class="fa fa-paint-brush "></i></label><input type="text" id="d2">
+  <input type="text" id="d2"><label class="label" for="d2">
+    <i class="fa fa-paint-brush "></i>
+</label>
 </div>
 <form action="">
     <h4>form field line</h4>
+    <br>
     <div class="field line">
         <input type="text" id="d3"><label class="label" for="d3"><i class="fa fa-facebook"></i></label>
     </div>
@@ -213,27 +218,32 @@
 
 </form>
 
-<h1 style="text-align:center;color:rgb(150,150,150);font-size:35px;margin:80px 0  50px">Google Material Sliders</h1>
-<center>
-    <input type="range" max="100" value="0">
-    <input type="range" max="100" value="50">
-    <input type="range" max="100" value="100">
-    <br/>
-    <input type="range" max="100" value="0" class="focused">
-    <input type="range" max="100" value="50" class="focused">
-    <input type="range" max="100" value="100" class="focused">
-    <br/>
-    <input type="range" max="100" value="0" class="clicked">
-    <input type="range" max="100" value="50" class="clicked">
-    <input type="range" max="100" value="100" class="clicked">
-    <br/>
-    <input type="range" max="100" value="0" class="disabled">
-    <input type="range" max="100" value="50" class="disabled">
-    <input type="range" max="100" value="100" class="disabled">
-</center>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
+ <h1>range slider</h1>
+    <div class="range-group">
+        <input class="range-item" type="range" value="25" min="0" max="100">
+        <span class="range-value">0</span>
+    </div>
+    
+    <div class="range-group">
+        <input class="range-item" type="range" value="15" min="0" max="100">
+        <span class="range-value">0</span>
+    </div>
+    
+    <div class="range-group">
+        <input class="range-item" type="range" value="25" min="0" max="1200">
+        <span class="range-value">0</span>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+ 
 <script src="../js/comeback.js"></script>
 <!--<script src="../js/jsPlugins/fileput.js"></script>-->
 <script>

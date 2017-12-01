@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chips jQuery Plugin</title>
+  <title>Chips</title>
    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,31 +18,11 @@
     <p>jQuery plugin written in CoffeeScript to add tagging/chips functionality to a page. </p>
   </header>
 
-  <div class="chips" id="chips1">
-    <h3>Item 1</h3>
-    <div class="chip">
-      <span class="chip-name">Tag1</span>
-      <button type="button" class="close" aria-label="Close"><span>&times;</span></button>
-    </div>
-    <div class="chip">
-      <span class="chip-name">Tag2</span>
-      <button type="button" class="close" aria-label="Close"><span>&times;</span></button>
-    </div>
-  </div>
-  <div class="chips" id="chips2">
-    <h3>Item 2</h3>
-    <div class="chip">
-      <span class="chip-name">Foo</span>
-      <button type="button" class="close" aria-label="Close"><span>&times;</span></button>
-    </div>
-  </div>
+<div class="container">
+    <input type="text" class="line" data-type="chip">
+
 </div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
- <script type="text/javascript" src="../../js/jsPlugins/chips.js"></script>
-  <script>
-    $( document ).ready(function() {
-        $('.chips').chips();
-    });
-  </script>
+ <script type="text/javascript" src="../../js/comeback.js"></script>
+  
 </body>
 </html>
