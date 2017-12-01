@@ -5,6 +5,7 @@ $white: #fff;
 $dark: #000000;
 $gray: #575757;
 $black: #232323;
+$light: #bdbdbd;
 $blue: #0033FF;
 $purple: #7B1FA2;
 $primary: #015AEB;
@@ -91,13 +92,13 @@ $whiteGray-3: #e0e0e0;
 $whiteGray-4: #f5f5f5;
 $whiteGray-5: #fafafa;
 $whiteGray-6: #eeeeee;
- $bg: ("light":#f3f3f3, "gray ": #575757, "black ": #232323, "blue ": #0288D1, "purple ": #7B1FA2, "rose ": #e91e63, "pink ": #FF1C69, "red ": #F42A2A, "green ":#388E3C, "yellow ": #FFEB3B, "sublime":#FB8C00, "success":#1D8348, "info":#00bcd4, "default":#90A4AE, "warning":#FF5722, "dark":#015165);
+ $bg: ("light": $light,"gray": $gray,"black": $black,"blue": $info,"purple": $purple,"rose": $rose,"pink": $pink,
+ "red": $red,"green": $green,"yellow": $yellow,"sublime": $sublime,"success": $success,"info":$info,"default": $default,"warning": $warning,"dark": $dark );
 @each $class,
 $color in ($bg) {
     .bg-#{$class} {
         background-color: $color !important;
         color: #fff;
-
         *,
         .dropdown-menu,
         .dropdown-toggle,
@@ -105,15 +106,14 @@ $color in ($bg) {
             color: #fff;
         }
     }
-
+  
+ 
     .text-#{$class} {
-        color: lighten($color,10%) !important;
+        color: lighten($color, 10%) !important;
     }
 }
-.bg-white{
- background-color: #fff;
-    color:#333;
-}
-.text-white{
 
+.bg-white {
+    background-color: #fff;
+    color: #333;
 }

@@ -1,13 +1,19 @@
 .datepicker {
     position: absolute;
-    top: 18px;
-    left: 18px;
+    top: 50px;
+    left: 0;
     background: #FFF;
     padding: 4px;
     border: 1px solid #d9d9d9;
     font-size: 16px;
     font-weight: 400;
     z-index: 50;
+    max-width: 300px;
+    display: none;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     /* box-shadow */
     -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
@@ -44,155 +50,120 @@
         text-decoration: none;
         color: #000;
     }
-    .row {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        width: 100%;
-        &:not(:last-child):not(:first-child) {
-            border-bottom: 1px solid #eee;
-        }
-        &.header {
-            text-align: center;
-            position: relative;
-            margin: 4px 0;
-            display: flex;
-            justify-content: space-around;
-            min-height: 30px;
-            align-items: center;
-            a {
-                margin: 0 3px;
-                cursor: pointer;
-            }
-            .prev {
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 0;
-                margin: 0;
-                padding: 4px;
-                font-size: 18px;
-                &:before {
-                    font-family: icomoon;
-                    content: "\e929";
-                }
-            }
-            .next {
-                display: block;
-                position: absolute;
-                right: 0;
-                top: 0;
-                margin: 0;
-                padding: 4px;
-                font-size: 18px;
-                &:after {
-                    font-family: icomoon;
-                    content: "\e92a";
-                }
-            }
-            .prev .arrow {
-                display: block;
-                float: left;
-            }
-            .next .arrow {
-                display: block;
-                float: right;
-            }
-            .prev.disabled,
-            .next.disabled {
-                cursor: default;
-            }
-            .prev.disabled .arrow {
-                border-right-color: #DDD;
-            }
-            .next.disabled .arrow {
-                border-left-color: #DDD;
-            }
-        }
-    }
-    .cell {
+    &.active {
+        left: 0;
         display: inline-flex;
         flex-flow: column wrap;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        justify-content: center;
-        text-align: center;
-        margin: 4px;
-        &.large {
-            width: 40px;
-            height: 40px;
+        opacity: 1;
+    }
+    .datepicker-body {
+        .row-week {
+            border-bottom: 1px solid #eee;
+        }
+        .datepicker-days {
+            padding: 10px 0;
+            color: #888;
+            display: inline-block;
+            transition: all 0.2s ease-in-out;
+            text-align: center;
+            width: calc(100% / 7);
+            font-size: 14px;
+        }
+        .datepicker-body-content .datepicker-days:hover {
+            background: #e9e9e9;
             cursor: pointer;
-            &.double {
-                word-wrap: break-word;
-                text-align: left;
-            }
         }
     }
-    .day {
-        color: #000;
-        cursor: pointer;
-        text-align: center;
-        margin: 8px;
+    .divider {
+        border-bottom: 1px solid #eee !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
-    .cell {
-        &.day {
-            &.today {
-                color: gray !important;
-                background: #d9d9d9;
-            }
-            &:hover {
-                color: rgba($rose, 0.8);
+    .datepicker-body {
+        padding: 5px 10px;
+        .datepicker-body-head {
+            border-bottom: 1px solid #eee !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            .datepicker-days {
+                font-size: 13px;
+                font-weight: 500;
             }
         }
-        &.month:hover,
-        &.year:hover,
-        &.decade:hover {
-            color: lighten($color: $rose, $amount: 10%);
-        }
-        &.blank {
-            background: none;
-            color: inherit;
-            cursor: default;
-            &:hover {
+        .datepicker-body-content .datepicker-days {
+            font-size: 13px;
+            font-weight: 400;
+            &.active {
+                color: #17f123;
+                font-weight: 500 !important;
+                font-size: 15px !important;
+            }
+            &.date-gray {
+                color: #b7b6b6;
                 background: none;
-                color: inherit;
-                cursor: default;
+                font-size: 11px;
             }
         }
-        &.day.selected,
-        &.month.selected,
-        &.year.selected,
-        &.decade.selected {
-            color: $rose;
+    }
+    .datepicker-head {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        color: #777;
+        .next-date,
+        .prev-date {
+            font-size: 22px;
+            line-height: 0.7;
         }
-        &.grayed {
-            color: #CCC;
+        .date-summary,
+        .next-date,
+        .prev-date {
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: all 0.3s ease-in-out;
+            color: #555;
+        }
+        .date-summary:hover,
+        .next-date:hover,
+        .prev-date:hover {
+            background-color: #eee;
         }
     }
-    .days .cell {
-        color: #555;
-    }
-    .decades .cell span {
-        display: block;
-        padding: 5px 5px 0;
-    }
-    .calendar,
-    .decades,
-    .years,
-    .months {
-        position: relative;
-        float: left;
-        width: 100%;
-    }
-    .decades,
-    .years,
-    .months {
-        display: none;
-    }
-    .decades .header,
-    .years .header,
-    .months .header {
-        margin-bottom: 13px;
+    .datepicker-menu {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease-in-out;
+        background-color: #fff;
+        padding: 10px 20px;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .datepicker-years,
+        .datepicker-months {
+            padding: 20px 0;
+            width: 33.3%;
+            color: #888;
+            text-align: center;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .datepicker-years {
+            &:hover,
+            &.active {
+                background: #eee;
+            }
+        }
+        .datepicker-months {
+            &:hover,
+            &.active {
+                background: #eee;
+            }
+        }
     }
 }

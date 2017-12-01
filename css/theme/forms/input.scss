@@ -5,7 +5,6 @@ form {
 
 input,
 textarea {
-    border-radius: .25rem;
     border: 0.04em solid $whiteGray-3;
     padding: .275rem .75rem;
     display: inline-block;
@@ -13,33 +12,31 @@ textarea {
     outline: 0;
     line-height: 1.5;
     margin: 4px 0;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    &:hover {
+    transition: all ease-in-out .25s;
+        &:hover,
+         &:focus {
         border-color: $info;
     }
-    &:focus {
-        border-color: $info;
-        box-shadow: 0 0 0 0.23rem rgba($info, .23);
-    }
+ 
     &.success {
         color: #28a745;
         border-color: lighten($color: #28a745, $amount: 10%);
         &:focus {
-            box-shadow: 0 0 0 0.23rem rgba(#28a745, .25);
+            box-shadow: 0 0 0 0.23rem rgba(0, 0, 0, .25);
         }
     }
     &.error {
         color: #dc3545;
         border-color: #dc3545;
         &:focus {
-            box-shadow: 0 0 0 0.23rem rgba(#dc3545, .25);
+            box-shadow: 0 0 0 0.23rem rgba(0, 0, 0, .25);
         }
     }
     &.warning {
         color: $orange-1;
         border-color: $orange-1;
         &:focus {
-            box-shadow: 0 0 0 0.23rem rgba($orange-2, .25);
+            box-shadow: 0 0 0 0.23rem rgba(0,0,0, .25);
         }
     }
 }
@@ -51,7 +48,37 @@ input[type="range"] {
     border: none;
     background: inherit;
 }
+input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    line-height: 1.5em;
+    text-indent: 20px;
+    color:#dad5d5;
+    font-size:13px;
+}
 
+input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    line-height: 1.5em;
+    text-indent: 20px;
+    color:#dad5d5;
+    font-size:13px;
+}
+
+input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    line-height: 1.5em;
+    text-indent: 20px;
+    color:#dad5d5;
+    font-size:13px;
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    line-height: 1.5em;
+    text-indent: 20px;
+    color:#dad5d5;
+    font-size:13px;
+}
 
 /*line forms*/
 

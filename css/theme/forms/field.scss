@@ -3,34 +3,35 @@
   clear: both;
   padding: 0;
   position: relative;
-  .label {
-    margin-bottom: 4px;
-    text-align: center;
+  input {
+    margin-top: 1px;
+    border: 1px solid $whiteGray-3;
     vertical-align: middle;
-    display: inline-flex;
+    display: flex;
     -webkit-align-items: center !important;
     align-items: center !important;
-    justify-content: center;
-    margin-right: -30px;
-    z-index: 99;
-    margin-top: 1px;
-    + input {
-      border: 1px solid $whiteGray-3;
-      vertical-align: middle;
-      display: flex;
-      -webkit-align-items: center !important;
-      align-items: center !important;
-      width: 100%;
-      padding: .575em;
-      line-height: 1.5;
-      border-radius: 0 3px 3px 0;
-      transition: all 0.4s ease;
-      &:hover,
-      &:focus {
-        border-color: lighten($info, 30%);
-      }
+    width: 100%;
+    padding: .575em;
+    line-height: 1.5;
+    border-radius: 0 3px 3px 0;
+    transition: all 0.4s ease;
+    &:hover,
+    &:focus {
+      border-color: lighten($info, 30%);
     }
-    + textarea {
+    &:focus + label  {
+      top: -30px;
+      left: 5px;
+    }
+    +.label,
+    label {
+      position: absolute;
+      top: 10px;
+      color: #999;
+      left: 10px;
+      transition: all 0.2s ease-in-out;
+    }
+    +textarea {
       border: 1px solid $whiteGray-3;
       height: 70px;
       vertical-align: middle;
@@ -48,15 +49,13 @@
     }
   }
   /*input focused*/
-
   &.line {
-
     label {
       position: absolute;
       top: 10px;
       color: #999;
       left: 0;
-      transition:all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
     input {
       border: none;
@@ -66,13 +65,13 @@
       &:focus {
         box-shadow: none;
       }
-      &:focus +label,&:focus label{
-        top:-10px;
-        font-size:18px;
-        color:$teal-6;
+      &:focus+label,
+      &:focus label {
+        top: -15px;
+        font-size: 18px;
+        color: $teal-6;
       }
     }
-
   }
   &.search {
     width: 300px;
@@ -80,16 +79,16 @@
     align-self: flex-end;
     transition: all 0.35s ease-in-out;
     &.start {
-      > label:before {
+      >label:before {
         left: 3%;
         right: auto;
       }
-      > input {
+      >input {
         padding-left: 2em;
         padding-right: 1em;
       }
     }
-    & > .input-search {
+    &>.input-search {
       transition: all 0.35s ease-in-out;
       padding: 0.65em 2em 0.65em 1em;
       border: 1px solid rgba($black, 0.2);
@@ -101,7 +100,7 @@
         border-color: lighten($info, 15%);
       }
     }
-    & > label:before {
+    &>label:before {
       font-family: icomoon !important;
       content: "\e9ae";
       position: absolute;
@@ -178,19 +177,20 @@
       box-shadow: 0 0 transparent;
       cursor: pointer;
     }
-    & > *:last-child:not(:first-child) {
+    &>*:last-child:not(:first-child) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
     }
-    & > *:first-child:not(:last-child) {
+    &>*:first-child:not(:last-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
     }
-    input, textarea {
+    input,
+    textarea {
       flex: 1 1 auto;
     }
     .dropdown-menu {

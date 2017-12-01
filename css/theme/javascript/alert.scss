@@ -1,6 +1,7 @@
 .alert {
   position: relative;
   font-size: $sm_font-size;
+      z-index: 999;
   &[data-alert="true"] {
     display: none;
     &.active {
