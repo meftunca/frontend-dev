@@ -1,4 +1,4 @@
-(function () {
+ {
     var view = function (el) {
         this.hide = function (delay) {
             if (!delay) {
@@ -82,96 +82,97 @@
         };
         return this;
     };
-    var slide = function (el) {
-        this.setup = function (delay) {
-            var hg = el.offsetHeight;
-            return el.style.cssText = "box-sizing:border-box;display:block;overflow:hidden; transition: transform 0.4s cubic-bezier(0, 1, 0.5, 1);";
-        };
-        this.effect = true;
-        this.up = function (delay) {
-            if (!delay) {
-                delay = 400;
-            }
-            this.setup(delay);
-            var padT = Number(window.getComputedStyle(el).paddingBottom.replace("px", ""));
-            var padB = Number(window.getComputedStyle(el).paddingTop.replace("px", ""));
-            var pad = padT + padB;
-            var hg = el.offsetHeight - pad;
-            var s = el.style;
-            el.setAttribute("data-slide", "up");
-            var effect = setInterval(function () {
-                hg -= parseFloat(hg / delay) * 3;
-                s.height = hg + "px";
-                if (hg < 50) {
-                    hg -= parseFloat(hg / delay) * 5;
-                }
-                if (hg <= pad) {
-                    s.paddingTop = 0;
-                    s.paddingBottom = 0;
-                    s.color = "transparent";
-                }
-                if (hg < 2) {
-                    s.height = 0;
-                    window.clearInterval(effect);
-                    setTimeout(function () {
-                        s.borderWidth = "0";
-                        setTimeout(function () {
-                            s.cssText = "";
-                            s.display = "none";
-                        }, 1)
-                    }, 1)
-                }
-            }, "fast");
-            return this;
-        };
-        this.down = function (delay) {
-            if (!delay) {
-                delay = 400;
-            }
-            this.effect = false;
-            this.setup(delay);
-            var padT = Number(window.getComputedStyle(el).paddingBottom.replace("px", ""));
-            var padB = Number(window.getComputedStyle(el).paddingTop.replace("px", ""));
-            var hg = Number(window.getComputedStyle(el).height.replace("px", "")),
-                h = 0;
-            var pad = padT + padB;
-            var s = el.style;
-            s.height = 0;
-            s.paddingTop = 0;
-            s.paddingBottom = 0;
-            s.color = "transparent";
-            el.setAttribute("data-slide", "down");
+          var slide = function (el) {
+              this.setup = function (delay) {
+                  var hg = el.offsetHeight;
+                  return el.style.cssText =
+                      "box-sizing:border-box;display:block;overflow:hidden; transition: transform 0.4s cubic-bezier(0, 1, 0.5, 1);";
+              };
+              this.effect = true;
+              this.up = function (delay) {
+                  if (!delay) {
+                      delay = 400;
+                  }
+                  this.setup(delay);
+                  var padT = Number(window.getComputedStyle(el).paddingBottom.replace("px", ""));
+                  var padB = Number(window.getComputedStyle(el).paddingTop.replace("px", ""));
+                  var pad = padT + padB;
+                  var hg = el.offsetHeight - pad;
+                  var s = el.style;
+                  el.setAttribute("data-slide", "up");
+                  var effect = setInterval(function () {
+                      hg -= parseFloat(hg / delay) * 3;
+                      s.height = hg + "px";
+                      if (hg < 50) {
+                          hg -= parseFloat(hg / delay) * 5;
+                      }
+                      if (hg <= pad) {
+                          s.paddingTop = 0;
+                          s.paddingBottom = 0;
+                          s.color = "transparent";
+                      }
+                      if (hg < 2) {
+                          s.height = 0;
+                          window.clearInterval(effect);
+                          setTimeout(function () {
+                              s.borderWidth = "0";
+                              setTimeout(function () {
+                                  s.cssText = "";
+                                  s.display = "none";
+                              }, 1)
+                          }, 1)
+                      }
+                  }, "fast");
+                  return this.down;
+              };
+              this.down = function (delay) {
+                  if (!delay) {
+                      delay = 400;
+                  }
+                  this.effect = false;
+                  this.setup(delay);
+                  var padT = Number(window.getComputedStyle(el).paddingBottom.replace("px", ""));
+                  var padB = Number(window.getComputedStyle(el).paddingTop.replace("px", ""));
+                  var hg = Number(window.getComputedStyle(el).height.replace("px", "")),
+                      h = 0;
+                  var pad = padT + padB;
+                  var s = el.style;
+                  s.height = 0;
+                  s.paddingTop = 0;
+                  s.paddingBottom = 0;
+                  s.color = "transparent";
+                  el.setAttribute("data-slide", "down");
 
-            var effect = setInterval(function () {
-                h += parseFloat(hg / delay) * 2;
-                s.height = h + "px";
-                if (h > pad) {
-                    s.color = "";
-                    s.paddingTop = "";
-                    s.paddingBottom = "";
-                }
-                if (h >= hg) {
-                    window.clearInterval(effect);
-                    setTimeout(function () {
-                        s.cssText = "";
-                        s.display = "block";
-                    }, 1)
-                }
-            }, "fast")
-            return this;
+                  var effect = setInterval(function () {
+                      h += parseFloat(hg / delay) * 2;
+                      s.height = h + "px";
+                      if (h > pad) {
+                          s.color = "";
+                          s.paddingTop = "";
+                          s.paddingBottom = "";
+                      }
+                      if (h >= hg) {
+                          window.clearInterval(effect);
+                          setTimeout(function () {
+                              s.cssText = "";
+                              s.display = "block";
+                          }, 1)
+                      }
+                  }, "fast")
+                  return this.up;
 
-        };
-        this.toggle = function (delay) {
-            this.setup(delay);
-            if (el.getAttribute("data-slide") == "up" || el.hasAttribute("data-slide") == false) {
-                this.down(delay);
-            } else if (el.getAttribute("data-slide") == "down") {
-                this.up(delay);
-            }
-            return this;
-        };
-        return this;
-    };
+              };
+              this.toggle = function (delay) {
+                  this.setup(delay);
+                  if (el.getAttribute("data-slide") == "up" || el.hasAttribute("data-slide") == false) {
+                      this.down(delay);
+                  } else if (el.getAttribute("data-slide") == "down") {
+                      this.up(delay);
+                  }
+                  return this;
+              };
+              return this;
+          };
     var rangeSlider = (function () {
         var range = document.querySelectorAll("input[type=range]");
         Array.prototype.forEach.call(range, function (el, i) {
@@ -213,7 +214,7 @@
         }
         );
     })();
-
+ 
 
     var dropdown = document.querySelectorAll(".dropdown .dropdown-toggle");
     Array.prototype.forEach.call(
@@ -287,7 +288,7 @@
             var menu = el.parentNode.querySelector(".accordion");
             menu.classList.toggle("show");
             slide(menu).toggle(150);
-        }
+         }
     });
 
     var navbarCollapse = document.querySelectorAll(".collapse-toggle[data-collapse=navbar]");
@@ -355,7 +356,7 @@
             var create_item = document.createElement(item);
             create_item.src = url;
             create_item.classList.add("lightbox-item");
-            document.querySelector(".lightbox-content").innerHTML = "";
+            document.querySelector(".lightbox-content").innerHTML="";
             document.querySelector(".lightbox-content").appendChild(create_item);
             var close = document.querySelector(".lightbox-close");
             var duration = Number(window.getComputedStyle(close)["transitionDuration"].replace("s", "") * 1000);
@@ -655,29 +656,66 @@
         let id = el.getAttribute("id");
         carousel(el);
     }
-    var alert = document.querySelectorAll(".alert-toggle");
-    Array.prototype.forEach.call(alert, function (el) {
-        var id = el.getAttribute("data-href"),
-            content = document.querySelector(".alert[data-id=" + id + "]"),
-            close = document.querySelector(".alert-close[data-href=" + id + "]"),
-            position = el.getAttribute("alert-position");
-        content.classList.add("position", position);
+        var alert = document.querySelectorAll(".alert-toggle");
+        Array.prototype.forEach.call(alert, function (el) {
+            var id = el.getAttribute("data-href"),
+                content = document.querySelector(".alert[data-id=" + id + "]"),
+                close = document.querySelector(".alert-close[data-href=" + id + "]"),
+                position = el.getAttribute("alert-position");
+            position = position.split("-").map(String);
+            let posX = position[1],
+                posY = position[0],
+                s = content.style,
+                hg, wd,
+                Wwd = window.innerWidth,
+                Whg = window.innerHeight;
+            s.position = "absolute";
+            let alertY = (pos) => {
+                    if (pos === "top") {
+                        s.top = 20 + "px";
+                    } else if (pos === "center") {
+                        s.top = Whg / 2 - hg + "px";
+                    } else if (pos === "bottom") {
+                        s.top = Whg - 80 + "px";
+                    }
+                },
+                alertX = (pos) => {
+                    if (pos === "left") {
+                        s.left = 20 + "px";
+                    } else if (pos === "center") {
+                        s.left = Wwd / 2 - wd / 2 + "px";
+                    } else if (pos === "right") {
+                        s.right = 20 + "px";
+                    }
+                }
+            el.addEventListener("click", function () {
+                content.classList.add("active");
+                hg = content.offsetHeight;
+                alertY(posY);
+                wd = content.offsetWidth;
+                alertX(posX)
+            }, false);
+        });
+        var alert_close = document.querySelectorAll(".alert-close");
 
-        el.addEventListener("click", function () {
-            content.classList.add("active");
-        }, false);
-
-    });
-    var alert_close = document.querySelectorAll(".alert-close");
-
-    Array.prototype.forEach.call(alert_close, function (el) {
-        el.addEventListener("click", function () {
-            fade(el.parentNode).out(300)
-            setTimeout(() => {
-                el.parentNode.style.display = "none";
-            }, 300);
-        }, false);
-    });
+        Array.prototype.forEach.call(alert_close, function (el) {
+            el.addEventListener("click", function () {
+                //el.parentNode.style.display = "none";
+                let parent = el.parentNode,
+                    s = el.parentNode.style,
+                    o = 10;
+                s.transtion = "all 0.4s ease-in-out";
+                let effect = setInterval(() => {
+                    o -= 1;
+                    s.opacity = o / 10;
+                    if (o === 0) {
+                        window.clearInterval(effect);
+                        parent.classList.remove("active");
+                        s.cssText = "";
+                    }
+                }, 40);
+            }, false);
+        });
     var chip = document.querySelectorAll("[data-type=chip]");
     Array.prototype.forEach.call(chip, function (el) {
         el.addEventListener("keypress", function (e) {
@@ -1208,13 +1246,13 @@
             if ('duration' in options) {
                 Effect.duration = options.duration;
             }
-            Effect.wrapInput($$('.waves-effect'));
+             Effect.wrapInput($$('.waves-effect'));
             if ('ontouchstart' in window) {
                 document.body.addEventListener('touchstart', showEffect, false);
             }
             document.body.addEventListener('mousedown', showEffect, false);
         };
-
+  
         Waves.attach = function (element) {
             if (element.tagName.toLowerCase() === 'input') {
                 Effect.wrapInput([element]);
@@ -1231,4 +1269,4 @@
         }, false);
     })(window);
 
-})();
+}
