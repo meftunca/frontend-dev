@@ -12,7 +12,6 @@ $modal-overlay: rgba(33, 33, 33, .07);
     z-index: 99999;
     overflow-x: hidden;
     overflow-y: auto;
- 
     &::before {
         content: ' ';
         position: fixed;
@@ -37,12 +36,13 @@ $modal-overlay: rgba(33, 33, 33, .07);
         transition: display 1s ease-in-out;
         width: auto;
         max-width: 400px;
+        box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(0, 0, 0, .06);
         &.out {
-            @include animate('bounceOutDown', 1s);
+            @include animate('fadeOutUp', 500ms);
         }
         &.in {
-            @include animate('bounceInDown', 1s);
+            @include animate('fadeInDown', 400ms);
         }
         &.small {
             max-width: 60%;
@@ -60,7 +60,7 @@ $modal-overlay: rgba(33, 33, 33, .07);
         >.close {
             position: absolute;
             right: 0;
-            margin: 14px;
+            margin: 16px 10px;
             opacity: 1;
             >a.closed {
                 color: $whiteGray-3;
@@ -109,10 +109,11 @@ $modal-overlay: rgba(33, 33, 33, .07);
             }
         }
         >.modal-header {
-            padding: 0.576em 1.4em;
+            padding: 0.276em 1.4em;
+            min-height: 50px;
             display: flex;
-            border-bottom: 1px solid rgba($black, 0.06);
-            font-weight: bold;
+            border-bottom: 1px solid rgba(35, 35, 35, 0.06);
+            align-items: baseline;
         }
         >.modal-body {
             padding: 0.576em 1.4em;
@@ -124,12 +125,8 @@ $modal-overlay: rgba(33, 33, 33, .07);
             border-top: 1px solid rgba($black, 0.06);
             display: flex;
             justify-content: center;
-            padding: 0.376em 2em;
+            min-height: 40px;
             text-align: center;
-            >*{
-                margin-top: 0;
-                margin-bottom: 0;
-            }
             &.start {
                 justify-content: flex-start;
             }

@@ -38,14 +38,14 @@ img.zoom {
  * This is a scss port of the wonderfull https://github.com/daneden/animate.css
  * Animations: Copyright (c) 2016 Daniel Eden
  */
-.shadow-1, .tab-group.vertical > .tab, .tab-group.vertical > .content-group > .tab-content:not(:first-of-type), .tab-group > .tab, .tab-group > .content-group {
+.shadow-1 {
   -webkit-box-shadow:  0 1px 13px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.12);
   -moz-box-shadow:  0 1px 13px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.12);
   -ms-box-shadow:  0 1px 13px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.12);
   -o-box-shadow:  0 1px 13px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.12);
   box-shadow:  0 1px 13px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.12);
   transition: all 0.4s ease-in-out; }
-  .shadow-1.hover:hover, .tab-group.vertical > .content-group > .hover.tab-content:hover:not(:first-of-type), .tab-group > .hover.tab:hover, .tab-group > .hover.content-group:hover {
+  .shadow-1.hover:hover {
     -webkit-box-shadow:  0 3px 16px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
     -moz-box-shadow:  0 3px 16px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
     -ms-box-shadow:  0 3px 16px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
@@ -1724,28 +1724,28 @@ a:not(.btn):not(.dropdown-toggle) {
 
 /*button boyurlar─▒*/
 .btn-xs {
-  padding: 0.35em 0.8em;
+  padding: 0.3em 0.8em;
   font-size: 10px; }
 
 .btn-sm {
-  padding: 0.5em 0.9em;
+  padding: 0.3em 0.9em;
   font-size: 12px; }
 
 .btn-md {
-  padding: 0.65em 1em;
+  padding: 0.4em 1em;
   font-size: 13px; }
 
 .btn-lg {
-  padding: 0.75em 1.1em;
+  padding: 0.6em 1.1em;
   font-size: 14px; }
 
 .btn-xl {
   font-size: 18px;
-  padding: 1rem 1.2em; }
+  padding: 0.6rem 1.2em; }
 
 .btn-xxl {
   font-size: 24px;
-  padding: 1em 1.5em; }
+  padding: 0.6em 1.5em; }
 
 .btn-block {
   width: 100%; }
@@ -4257,7 +4257,7 @@ input[type=range]::-moz-focus-inner, input[type=range]::-moz-focus-outer {
     display: none;
     border-radius: 0;
     min-width: 200px;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.13);
     margin: 0;
     transition: width 0.6s ease-in-out; }
     .dropdown > .dropdown-menu.right {
@@ -4302,6 +4302,9 @@ input[type=range]::-moz-focus-inner, input[type=range]::-moz-focus-outer {
       min-height: 32px;
       align-items: center;
       text-transform: capitalize; }
+      .dropdown > .dropdown-menu > .item:not(:last-of-type),
+      .dropdown > .dropdown-menu > li:not(:last-of-type) {
+        border-bottom: 1px solid #eee; }
       .dropdown > .dropdown-menu > .item, .dropdown > .dropdown-menu > .item > a,
       .dropdown > .dropdown-menu > li,
       .dropdown > .dropdown-menu > li > a {
@@ -4417,34 +4420,24 @@ input[type=range]::-moz-focus-inner, input[type=range]::-moz-focus-outer {
     transition: display 1s ease-in-out;
     width: auto;
     max-width: 400px;
+    box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.06); }
     .modal > .modal-content.out {
-      animation: bounceOutDown 1s; }
-@keyframes bounceOutDown {
-  20% {
-    transform: translate3d(0, 10px, 0); }
-  40%, 45% {
-    opacity: 1;
-    transform: translate3d(0, -20px, 0); }
+      animation: fadeOutUp 500ms; }
+@keyframes fadeOutUp {
+  from {
+    opacity: 1; }
   to {
     opacity: 0;
-    transform: translate3d(0, 2000px, 0); } }
+    transform: translate3d(0, -100%, 0); } }
     .modal > .modal-content.in {
-      animation: bounceInDown 1s; }
-@keyframes bounceInDown {
-  from, 60%, 75%, 90%, to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
-  0% {
+      animation: fadeInDown 400ms; }
+@keyframes fadeInDown {
+  from {
     opacity: 0;
-    transform: translate3d(0, -3000px, 0); }
-  60% {
-    opacity: 1;
-    transform: translate3d(0, 25px, 0); }
-  75% {
-    transform: translate3d(0, -10px, 0); }
-  90% {
-    transform: translate3d(0, 5px, 0); }
+    transform: translate3d(0, -100%, 0); }
   to {
+    opacity: 1;
     transform: none; } }
     .modal > .modal-content.small {
       max-width: 60%; }
@@ -4458,7 +4451,7 @@ input[type=range]::-moz-focus-inner, input[type=range]::-moz-focus-outer {
     .modal > .modal-content > .close {
       position: absolute;
       right: 0;
-      margin: 14px;
+      margin: 16px 10px;
       opacity: 1; }
       .modal > .modal-content > .close > a.closed {
         color: #e0e0e0;
@@ -4495,10 +4488,11 @@ input[type=range]::-moz-focus-inner, input[type=range]::-moz-focus-outer {
         -webkit-justify-content: center !important;
         justify-content: center !important; }
     .modal > .modal-content > .modal-header {
-      padding: 0.576em 1.4em;
+      padding: 0.276em 1.4em;
+      min-height: 50px;
       display: flex;
       border-bottom: 1px solid rgba(35, 35, 35, 0.06);
-      font-weight: bold; }
+      align-items: baseline; }
     .modal > .modal-content > .modal-body {
       padding: 0.576em 1.4em;
       min-height: 300px;
@@ -4508,11 +4502,8 @@ input[type=range]::-moz-focus-inner, input[type=range]::-moz-focus-outer {
       border-top: 1px solid rgba(35, 35, 35, 0.06);
       display: flex;
       justify-content: center;
-      padding: 0.376em 2em;
+      min-height: 40px;
       text-align: center; }
-      .modal > .modal-content > .modal-footer > * {
-        margin-top: 0;
-        margin-bottom: 0; }
       .modal > .modal-content > .modal-footer.start {
         justify-content: flex-start; }
       .modal > .modal-content > .modal-footer.end {
@@ -4983,21 +4974,21 @@ button.close {
   bottom: 0;
   background-color: #fff;
   min-height: 100%;
-  width: 250px;
+  min-width: 250px;
   padding: 0;
-  transition: all 400ms ease-in-out;
+  transition: all 1000ms ease;
   z-index: 9999; }
   .sidebar {
     left: -100%; }
     .sidebar.show {
       left: 0;
-      box-shadow: 0 3px 20px 0 rgba(33, 33, 33, 0.4); }
+      box-shadow: 0 1px 20px 0 rgba(33, 33, 33, 0.15); }
   .sidebar.right {
     left: auto;
     right: -100%; }
     .sidebar.right.show {
       right: -5px;
-      box-shadow: 0 -3px 20px 0 rgba(33, 33, 33, 0.4); }
+      box-shadow: 0 -1px 20px 0 rgba(33, 33, 33, 0.15); }
   .sidebar > .sidebar-head {
     padding: 0;
     align-items: flex-start;
