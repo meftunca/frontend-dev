@@ -1,0 +1,41 @@
+.gradient_blue {
+    background: #4568dc;
+    background: -webkit-linear-gradient(to right, #b06ab3, #4568dc);
+    background: linear-gradient(to right, #b06ab3, #4568dc);
+}
+
+.card {
+    background: transparent !important;
+}
+
+.text-whiteAll * {
+    color: white !important;
+}
+.header_content {
+    padding: 7% 0 10% 0;
+    background-color: #e9e9e9;
+    margin-top: 60px;
+}
+.padding_content {
+    padding: 7% 0 10% 0;
+}
+.ml--10 {
+    margin-left: -10px;
+}
+.mr--10 {
+    margin-right: -10px;
+}
+.navbar.white .item.active a {
+    color: #0652fd;
+    transition: all 0.4s ease-in-out;
+    font-weight: 500;
+}
+.navbar.white .item {
+    background-color: transparent !important;
+}
+.navbar.white .item a {
+    font-size: 15px;
+}
+.navbar.white .item:hover a {
+    color: #0652fd;
+}
